@@ -3,6 +3,8 @@
 import requests
 import re
 
+from time import sleep
+
 # weather news
 # URL = 'https://live.line.me/channels/659/broadcast/3055754'
 
@@ -10,12 +12,19 @@ import re
 # URL = 'https://live.line.me/channels/231/broadcast/295248'
 
 # test
-URL = 'https://live.line.me/channels/851984/broadcast/3125601' 
+URL = 'https://live.line.me/channels/34989/broadcast/3103498'
 
-content = requests.get(URL).content.decode('UTF-8')
+while True:
+    content = requests.get(URL).content.decode('UTF-8')
 
-p = re.compile('http://lss.line-cdn.net/p/live.+?chunklist.m3u8')
-matchResult = p.findall(content)
+    p = re.compile('http://lss.line-cdn.net/p/live.+?chunklist.m3u8')
+
+    matchResult = p.findall(content)
+    print(len(matchResult))
+    if len(matchResult) > 1:
+        break
+    else :
+        sleep(33)
 
 
 # 高画質のURLに変換して、出力をする

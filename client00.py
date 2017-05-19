@@ -3,7 +3,14 @@
 import requests
 import re
 
-URL = 'https://live.line.me/channels/659/broadcast/3055754'
+# weather news
+# URL = 'https://live.line.me/channels/659/broadcast/3055754'
+
+# ann0
+# URL = 'https://live.line.me/channels/231/broadcast/295248'
+
+# test
+URL = 'https://live.line.me/channels/851984/broadcast/3125601' 
 
 content = requests.get(URL).content.decode('UTF-8')
 
